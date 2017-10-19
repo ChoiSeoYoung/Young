@@ -32,7 +32,6 @@ function draw() {    
     raindrops[i].move(); //call raindrops[0],raindrops[1], ... and make them move    
     raindrops[i].render();  
   {
-  Stroke(0);
   fill(0);
   ellipse(mouseX, mouseY, 10,20);
 }
