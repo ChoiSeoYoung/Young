@@ -31,8 +31,7 @@ function draw() {    
   for (i=0; i<max_raindrops; i++) {         
     raindrops[i].move(); //call raindrops[0],raindrops[1], ... and make them move    
     raindrops[i].render();  
-  ellipse(mouseX, mouseY, 10,20)
-  }
+  {
+  ellipse(mouseX, mouseY, 10,20);
 }
 //if raindrop meet ellipse, then it goes up
-//function hand(p,q,r) {  this.p = mouseX;  this.q = mouseY;  this.r = r;  this.arm = function() {    noStroke();    fill(this.r);    ellipse(this.p, this.q, 10, 30);  }}
