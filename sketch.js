@@ -18,6 +18,9 @@ function raindrop(x, y, vy, sz, c) {  // Make a new object by new function, rai
 }
 function setup() {     
   createCanvas(windowWidth, windowHeight);  
+  noStroke();
+  fill(0);
+  ellipse(mouseX, mouseY, 400, 800);
   var i;  
   for (i=0; i<max_raindrops; i++) {         
     raindrops[i] = new raindrop (
@@ -25,11 +28,7 @@ function setup() {    
       random(10,50), random(30,100), color(255));       
   }
 }
-function arm() {
-  noStroke();  
-  fill(100);  
-  ellipse(mouseX, mouseY, 100, 200);
-} 
+
 function draw() {     
   background(200,200,200);  
   var i;  
