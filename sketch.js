@@ -24,6 +24,9 @@ function setup() {    
       random(0, windowWidth), random(0,windowHeight),      
       random(10,50), random(30,100), color(255));       
   }
+  noStroke();
+  fill(0);
+  ellipse(mouseX, mouseY, 100,400);
 }
 function draw() {     
   background(200,200,200);  
@@ -34,7 +37,4 @@ function draw() {    
   }
 }
 
-noStroke();  
-fill(0);  
-ellipse(mouseX, mouseY, 100,400);
 //if raindrop meet ellipse, then it goes up
