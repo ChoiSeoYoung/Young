@@ -13,7 +13,10 @@ function raindrop(x, y, vy, sz, c) {  // Make a new object by new function, rai
   this.render = function() {    
     noStroke();    
     fill(this.c);    
-    ellipse(this.x, this.y, 2, this.sz);     
+    ellipse(this.x, this.y, 2, this.sz);
+    noStroke();
+    fill(100,100,100);
+    ellipse(mouseX, mouseY, 100, 200);
   }
 }
 function setup() {     
@@ -24,9 +27,6 @@ function setup() {    
       random(0, windowWidth), random(0,windowHeight),      
       random(10,50), random(30,100), color(255));       
   }
-  noStroke();
-  fill(0);
-  ellipse(mouseX, mouseY, 100,400);
 }
 function draw() {     
   background(200,200,200);  
