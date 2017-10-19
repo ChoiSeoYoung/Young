@@ -1,6 +1,6 @@
 var max_raindrops = 100; 
 var raindrops = []; //array
-function raindrop(x, y, vy, sz, c) {  // Make a new object by new function, Planet
+function raindrop(x, y, vy, sz, c) {  // Make a new object by new function, raindrop
   this.x = x;     
   this.y = y;  
   this.vy = vy;  //velocity y  
@@ -31,6 +31,7 @@ function draw() {    
   for (i=0; i<max_raindrops; i++) {         
     raindrops[i].move(); //call raindrops[0],raindrops[1], ... and make them move    
     raindrops[i].render();  
+  ellipse(mouseX, mouseY, 10,20)
   }
 }
 //if raindrop meet ellipse, then it goes up
