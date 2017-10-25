@@ -11,7 +11,7 @@ function planet(x,y,vx,vy,sz,c) { 
     this.x += this.vx;    
     this.y += this.vy;    
     if (this.x<0 || this.x>windowWidth) this.vx = -this.vx;    
-    if (this.y<0 || this.y>windowHeight) this.vy = =this.vy;  
+    if (this.y<0 || this.y>windowHeight) this.vy = -this.vy;  
   }  
   this.render = function() {    
     noStroke();    
