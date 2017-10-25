@@ -1,6 +1,5 @@
 function setup() {  
   createCanvas(windowWidth, windowHeight);  
-  //background(250, 0, 0);
 }
 
 function draw() {  
@@ -18,7 +17,7 @@ function draw() { 
         strokeWeight(thickness);       
         line(x, y, x+delta, y+delta);      
       } 
-      else (r2<0.5){        
+      else {        
         strokeWeight(2);        
         stroke(0);        
         line(x+delta, y, x, y+delta);              
