@@ -6,7 +6,7 @@ function planet(x,y,vx,vy,sz,c) { 
   this.vx = vx;  
   this.vy = vy; 
   this.sz = sz;  
-  this,c = c;  
+  this.c = c;  
   this.move = function() {    
     this.x += this.vx;    
     this.y += this.vy;    
