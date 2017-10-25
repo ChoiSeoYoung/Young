@@ -27,7 +27,7 @@ function setup() {    
 }
 
 function draw() {     
-  //background(200,200,200);  
+  background(200,200,200);  
   var i;  
   for (i=0; i<max_raindrops; i++) {         
     raindrops[i].move(); //call raindrops[0],raindrops[1], ... and make them move    
