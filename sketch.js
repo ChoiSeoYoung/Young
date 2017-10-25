@@ -25,7 +25,7 @@ function setup () { 
   for (i=0; i<max_planets; i++) {    
     planets[i] = new planet (      
       random(0,windowWidth), random(0,windowHeight),      
-      random(-2,2), random(-2,2), random(10,100), color((0,255),0,0)    
+      random(-2,2), random(-2,2), random(10,100), color(random(0,255),0,0)    
     )        
   }
 }
