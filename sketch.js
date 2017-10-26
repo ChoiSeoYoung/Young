@@ -1,33 +1,45 @@
-function setup() {  
-  createCanvas(windowWidth, windowHeight);
-}
-var mode = 'RECT';
-function draw() {  
-  background(0,0,0);  
-  randomSeed(0);  
-  stroke(255);
-  var x, y, r;  
-  var delta = map(mouseX, 0, windowWidth, 10, 100);  
-  for (y=0; y<windowHeight; y+=delta) {   
-    for (x=0; x<windowWidth; x+=delta) {      
-      r = random(0,1);     
-      if (r<0.5) {        
-        fill(0,0,random(0,255))        
-        switch(mode) {          
-          case 'RECT' : rect(x,y,delta,delta);          
-          break;          
-          case 'ELLIPSE' : ellipse(x,y,delta,delta);          
-          break;        
-        }      
-      }    
-    } 
+var max_rainDrops = 1000;
+var rainDrops = [];
+var rainSound;
+function rainDrop(x, y, vy, sz, c) {
+  this.x = x;this.y = y;this.vy = vy;this.sz = sz;this.c = c;
+  this.move = function() {
+    this.y += this.vy;
+    if (this.y>windowHeight) this.y = 0;
+    if (mouseIsPressed) {
+      var xdif = abs(this.x-mouseX);
+      if (xdif < 100) {
+        var ydif = 0.05*xdif*xdif;
+        if ( (this.y- mouseY) > ydif + random(-100,100)) {
+          this.y=0;
+        }
+      }
+    }
+  }
+  this.render = function() {
+    noStroke();
+    fill(this.c);
+    ellipse(this.x, this.y, 2, this.sz);
   }
 }
-function keyPressed() {  
-  switch(key) {    
-    case '1' : mode = 'RECT';    
-    break;    
-    case '2' : mode = 'ELLIPSE';
-    break; 
+function preload() {
+  rainSound = loadSound('rain_inside_house.mp3');
+}
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  var i;
+  for (i=0; i<max_rainDrops; i++) {
+    rainDrops[i] = new rainDrop(
+      random(0, windowWidth), random(0, windowHeight),random(30, 100),
+      random(30, 100), color(random(100, 255)) );
+  }
+  rainSound.loop();
+}
+function draw() {
+  background(0);
+  var i;
+  for (i=0; i<max_rainDrops; i++) {
+    rainDrops[i].move();
+    rainDrops[i].render();  
   }
 }
