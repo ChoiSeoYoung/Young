@@ -1,28 +1,34 @@
-function setup() {  
-  createCanvas(windowWidth, windowHeight);  
-}
+float[] cx;
+float[] cy;
+int N; 
 
-function draw() {  
-  background(250, 250, 250);  
-  randomSeed(0);  
-  var x, y, r; 
-  var delta = 50;
-  var bsprob = map(mouseX, 0, windowWidth, 0,1);  
-  var thickness = map(mouseY,0,windowHeight,6,30);  
-  for (var x=0; x<windowWidth; x+=delta) {   
-    for (var y=0; y<windowHeight; y+=delta){      
-      r = random(0,1);                   
-      if (r<bsprob){        
-        stroke(120,40,200);        
-        strokeWeight(thickness);       
-        line(x, y, x+delta, y+delta);      
-      } 
-      else {        
-        strokeWeight(2);        
-        stroke(0);        
-        line(x+delta, y, x, y+delta);              
-      }    
-    }    
-  }
+void setup() {  
+  frameRate(10);  
+  size(width, height);  
+  background(200, 200, 200);  
+  position();
 }
+void position() {  
+  N = 100;  
+  cx = new float[N];  
+  cy = new float[N];  
+  for (int i=0; i<N; i++) {    
+    cx[i] = random(0, width);    
+    cy[i] = random(0, height);  
+  }
+}  
+//for each frame
+void draw() {  
+  background(200);  
+  fill(255);  
+  stroke(250);  
+  float size = random(5, 15);  
+  for (int i=0; i<N; i++) {    
+    cx[i] = cx[i] + random(-10, 10);    
+    cy[i] = cy[i] + random(0, 10);    
+    if (cy[i]>height) cy[i]=0;    
+    ellipse(cx[i], cy[i], size, size);  
+  }
+} 
+
 
