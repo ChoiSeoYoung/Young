@@ -1,4 +1,4 @@
-var max_rainDrops = 1000;
+var max_rainDrops = 100;
 var rainDrops = [];
 //var rainSound;
 function rainDrop(x, y, vy, sz, c) {
@@ -31,7 +31,7 @@ function setup() {
   for (i=0; i<max_rainDrops; i++) {
     rainDrops[i] = new rainDrop(
       random(0, windowWidth), random(0, windowHeight),random(30, 100),
-      random(30, 100), color(random(100, 255)) );
+      random(15,30), color(random(100, 255)) );
   }
 //  rainSound.loop();
 }
