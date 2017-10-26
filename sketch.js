@@ -4,7 +4,7 @@ int N; 
 
 void setup() {  
   frameRate(10);  
-  size(width, height);  
+  size(600,600);  
   background(200, 200, 200);  
   position();
 }
